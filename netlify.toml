@@ -1,0 +1,21 @@
+# Netlify: la app (carpeta public) se sirve como web estática y el resto son funciones:
+#  - netlify/functions/api.mjs  → /api/*, /auth/meta/callback, /p/* (imágenes públicas), /m/* (miniaturas)
+#  - netlify/functions/tick.mjs → reloj cada 5 minutos (prepara, recuerda y publica)
+[build]
+  publish = "public"
+  command = "echo 'Sin paso de compilación'"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+# El service worker no debe quedarse en caché para que las actualizaciones lleguen al iPhone.
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache"
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "same-origin"

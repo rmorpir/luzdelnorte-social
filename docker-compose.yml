@@ -1,0 +1,29 @@
+# Despliegue en un servidor propio (VPS) con HTTPS automático mediante Caddy.
+# 1) Apunta tu dominio (registro A) a la IP del servidor.
+# 2) Cambia "redes.luzdelnortefotografia.com" en el Caddyfile.
+# 3) Crea el archivo .env a partir de .env.example.
+# 4) docker compose up -d
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DATA_DIR: /data
+      PORT: "3000"
+    volumes:
+      - ldn-data:/data
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+    depends_on:
+      - app
+volumes:
+  ldn-data:
+  caddy-data:

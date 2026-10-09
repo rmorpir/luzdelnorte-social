@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Luz del Norte · Redes</title>
+  <meta name="description" content="Programa y aprueba cada día tus publicaciones de Instagram y Facebook.">
+  <meta name="theme-color" content="#0e1420">
+  <!-- iPhone: app a pantalla completa al añadirla a la pantalla de inicio -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Luz del Norte">
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/icons/icon-192.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div id="app" aria-live="polite"></div>
+  <nav id="tabs" class="tabs" hidden>
+    <a href="#/" data-tab="hoy"><span class="ti">☀︎</span>Hoy</a>
+    <a href="#/subir" data-tab="subir"><span class="ti">＋</span>Subir</a>
+    <a href="#/programa" data-tab="programa"><span class="ti">☰</span>Programa</a>
+    <a href="#/ajustes" data-tab="ajustes"><span class="ti">⚙︎</span>Ajustes</a>
+  </nav>
+  <div id="toast" class="toast" role="status" hidden></div>
+  <script src="/app.js"></script>
+</body>
+</html>
